@@ -1404,7 +1404,9 @@ class RequestSpecificationImpl implements FilterableRequestSpecification, Groovy
     def contentTypeAsString = headers.getValue(CONTENT_TYPE)
     def ct = ContentTypeExtractor.getContentTypeWithoutCharset(contentTypeAsString)
     def subType
-    if (ct?.toLowerCase()?.startsWith(MULTIPART_CONTENT_TYPE_PREFIX_WITH_SLASH)) {
+    if (ct?.toLowerCase()?.startsWith("text/csv")) {
+      subType = ct
+    } else if (ct?.toLowerCase()?.startsWith(MULTIPART_CONTENT_TYPE_PREFIX_WITH_SLASH)) {
       subType = substringAfter(ct, MULTIPART_CONTENT_TYPE_PREFIX_WITH_SLASH)
     } else if (ct?.toLowerCase()?.contains(MULTIPART_CONTENT_TYPE_PREFIX_WITH_PLUS)) {
       subType = substringBefore(substringAfter(ct, MULTIPART_CONTENT_TYPE_PREFIX_WITH_PLUS), "+")
