@@ -24,7 +24,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>xml-path</artifactId>
-    <packaging>bundle</packaging>
+    <packaging>pom</packaging>
 
     <build>
         <plugins>
